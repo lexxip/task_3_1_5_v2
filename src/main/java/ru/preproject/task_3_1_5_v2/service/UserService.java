@@ -32,7 +32,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public UserDTO findOne(Long id) {
         User user = userRepository.findById(id).orElse(null);
-        return (user == null ? null : convertEntityToDTO(user));
+        return user == null ? null : convertEntityToDTO(user);
     }
 
     @Transactional

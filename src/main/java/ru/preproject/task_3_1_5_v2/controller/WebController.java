@@ -1,6 +1,5 @@
 package ru.preproject.task_3_1_5_v2.controller;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +21,11 @@ public class WebController {
     public WebController(RoleService roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
+    }
+
+    @GetMapping("/")
+    public String homePage() {
+        return "redirect:/login";
     }
 
     @GetMapping("/admin")
